@@ -50,33 +50,34 @@ function App() {
   }, [])
 
   return(
-    <>
-      <h1 className="mt-5 text-center">Elenco dei Post</h1>
-      <div className="container mt-5">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="title" className="form-label">Titolo</label>
-            <input type="text" className="form-control" id="title" name="title" value={formData.title} onChange={handleInputChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="content" className="form-label">Contenuto del post</label>
-            <textarea className="form-control" id="content" name="content" value={formData.content} onChange={handleInputChange} required></textarea>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="image" className="form-label">URL Immagine</label>
-            <input type="text" className="form-control" id="image" name="image" value={formData.image} onChange={handleInputChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="tags" className="form-label">Tags (separati da virgola)</label>
-            <input type="text" className="form-control" id="tags" name="tags" value={formData.tags} onChange={handleInputChange} required />
-          </div>
-          <button type="submit" className="btn btn-primary">Inserisci Post</button>
-        </form>
-      </div>
-      <div className="cardbox container mt-5">
-        <div className="row">
+    <div className="container">
+      <h1 className="pt-5 text-center">Elenco dei Post</h1>
+      <div className="row">
+        <div className="container mt-5 border rounded border-2 p-4 col-4 h-50">
+          <h3>Inserisci nuovo Post</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3 ">
+              <label htmlFor="title" className="form-label ">Titolo</label>
+              <input type="text" className="form-control bg-dark text-light" id="title" name="title" value={formData.title} onChange={handleInputChange} required />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content" className="form-label">Contenuto del post</label>
+              <textarea className="form-control bg-dark text-light" id="content" name="content" value={formData.content} onChange={handleInputChange} required></textarea>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">URL Immagine</label>
+              <input type="text" className="form-control bg-dark text-light" id="image" name="image" value={formData.image} onChange={handleInputChange} required />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="tags" className="form-label">Tags (separati da virgola)</label>
+              <input type="text" className="form-control bg-dark text-light" id="tags" name="tags" value={formData.tags} onChange={handleInputChange} required />
+            </div>
+            <button type="submit" className="btn btn-secondary">Inserisci Post</button>
+          </form>
+        </div>
+        <div className="cardbox container my-5 col-8">
           {posts.map(post => (
-              <div className="card p-3 col-6" key={post.id}>
+              <div className="card mb-3 bg-dark text-light border-light" key={post.id}>
                 <img src={post.image} className="card-img-top" alt={post.title} onError={handleImageError}/>
                 <div className="card-body">
                   <h5 className="card-title">{post.title}</h5>
@@ -88,7 +89,7 @@ function App() {
             ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

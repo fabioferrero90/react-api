@@ -22,7 +22,7 @@ function App() {
     if(url.startsWith('/imgs/posts/')){
       return `${base_endpoint}${url}`;
     }
-    return
+    return url;
   }
 
   const handleImageError = (e) => {

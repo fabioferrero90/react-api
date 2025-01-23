@@ -18,6 +18,13 @@ function App() {
       ))
   )
 
+  const handleImageUrl = (url) => {
+    if(url.startsWith('/imgs/posts/')){
+      return `${base_endpoint}${url}`;
+    }
+    return
+  }
+
   const handleImageError = (e) => {
     e.target.src = 'https://placehold.co/600x400';
   }
@@ -78,7 +85,7 @@ function App() {
         <div className="cardbox container my-5 col-8">
           {posts.map(post => (
               <div className="card mb-3 bg-dark text-light border-light" key={post.id}>
-                <img src={post.image} className="card-img-top" alt={post.title} onError={handleImageError}/>
+                <img src={handleImageUrl(post.image)} className="card-img-top" alt={post.title} onError={handleImageError}/>
                 <div className="card-body">
                   <h5 className="card-title">{post.title}</h5>
                   <p className="card-text">{post.content}</p>
